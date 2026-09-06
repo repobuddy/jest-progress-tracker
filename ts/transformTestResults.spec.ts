@@ -2,7 +2,7 @@ import type { AggregatedResult } from '@jest/test-result'
 import a from 'assertron'
 import type { CoverageMap } from 'istanbul-lib-coverage'
 import { isInRange } from 'satisfier'
-import { transformTestResults } from './transformTestResults'
+import { transformTestResults } from './transformTestResults.js'
 
 test('return undefined if test was interrupted', () => {
 	expect(

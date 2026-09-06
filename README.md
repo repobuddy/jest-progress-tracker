@@ -7,6 +7,12 @@
 
 Track test progress for jest.
 
+## Requirements
+
+`jest-progress-tracker` is an ES module. It needs Node 20+ and Jest 27+
+(Jest loads a reporter with `requireOrImportModule`, which imports an ES module).
+`require('jest-progress-tracker')` is not supported.
+
 ## Usage
 
 To use `jest-progress-tracker`,

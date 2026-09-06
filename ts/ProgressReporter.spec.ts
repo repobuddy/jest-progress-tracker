@@ -1,7 +1,7 @@
 import a from 'assertron'
 import type { TestResults } from 'test-progress-tracker'
-import ProgressReporter from '.'
-import { noCoverage } from './testResultsExamples'
+import ProgressReporter from './index.js'
+import { noCoverage } from './testResultsExamples.js'
 
 test('mark filtered if there is testNamePattern', async () => {
 	const subject = new ProgressReporter()

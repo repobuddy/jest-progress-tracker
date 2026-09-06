@@ -5,6 +5,7 @@
 		"includes": [
 			"!**/.turbo",
 			"!**/cjs",
+			"!**/esm",
 			"!**/coverage",
 			"!**/node_modules",
 			"!skills-lock.json",

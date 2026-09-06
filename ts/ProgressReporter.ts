@@ -1,6 +1,6 @@
 import type { JestHookSubscriber, WatchPlugin } from 'jest-watcher'
 import { append, init } from 'test-progress-tracker'
-import { transformTestResults } from './transformTestResults'
+import { transformTestResults } from './transformTestResults.js'
 
 init()
 

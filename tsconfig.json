@@ -6,11 +6,10 @@
 		// `target` by hand. It used to say `es2015`, which left out `Error.cause` and
 		// `AggregateError`.
 		"lib": ["es2023"],
-		// Typecheck-only: tsdown emits the CommonJS at `cjs/`, and jest runs the specs
-		// through babel. `preserve`/`bundler` is what both of those actually do, and it
-		// is the only setting TypeScript 7 accepts here — `node10` was removed. The
-		// published CommonJS surface is proved separately, by typechecking a consumer
-		// against the packed tarball under `--module nodenext`.
+		// Typecheck-only: tsdown emits the ESM at `esm/`, and jest runs the specs through
+		// babel. `preserve`/`bundler` is what both of those actually do, and it is the only
+		// setting TypeScript 7 accepts here — `node10` was removed. Relative imports still
+		// carry the `.js` extension the ESM output needs; `bundler` resolution accepts it.
 		"module": "preserve",
 		"moduleResolution": "bundler",
 		"newLine": "LF",

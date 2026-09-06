@@ -15,10 +15,17 @@
 		"url": "https://github.com/repobuddy/jest-progress-tracker.git"
 	},
 	"license": "MIT",
-	"main": "cjs/index.js",
-	"typings": "cjs/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./esm/index.d.ts",
+			"default": "./esm/index.js"
+		}
+	},
+	"main": "esm/index.js",
+	"typings": "esm/index.d.ts",
 	"files": [
-		"cjs",
+		"esm",
 		"ts",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress,study,stories}.*"
 	],
@@ -26,7 +33,7 @@
 		"build": "tsdown",
 		"check": "biome check",
 		"check:fix": "biome check --fix",
-		"clean": "rimraf cjs coverage .turbo",
+		"clean": "rimraf cjs esm coverage .turbo",
 		"coverage": "jest --coverage",
 		"cs": "changeset",
 		"depcheck": "depcheck",
@@ -75,7 +82,7 @@
 		"typescript": "^7.0.2"
 	},
 	"peerDependencies": {
-		"jest": ">=24.0.0"
+		"jest": ">=27.0.0"
 	},
 	"packageManager": "pnpm@11.21.0"
 }
