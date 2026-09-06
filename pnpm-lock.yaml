@@ -14,9 +14,6 @@ importers:
       istanbul-lib-coverage:
         specifier: ^3.2.2
         version: 3.2.2
-      jest-watcher:
-        specifier: ^29.0.0 || ^30.0.0
-        version: 30.5.0
       test-progress-tracker:
         specifier: ^2.0.8
         version: 2.0.8
