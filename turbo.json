@@ -4,18 +4,18 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["package.json", "tsconfig.*", "tsdown.config.ts", "ts/**/*.ts"],
-			"outputs": ["cjs/**"]
+			"outputs": ["esm/**"]
 		},
 		"clean": { "cache": false },
 		"coverage": {
 			"dependsOn": ["build"],
-			"inputs": ["package.json", "tsconfig.*", "jest.config.js", "babel.config.js", "ts/**/*.ts"],
+			"inputs": ["package.json", "tsconfig.*", "jest.config.js", "babel.config.cjs", "ts/**/*.ts"],
 			"outputs": ["coverage/**"]
 		},
 		"depcheck": { "inputs": ["package.json", "ts/**/*.ts"] },
 		"test": {
 			"dependsOn": ["build"],
-			"inputs": ["package.json", "tsconfig.*", "jest.config.js", "babel.config.js", "ts/**/*.ts"]
+			"inputs": ["package.json", "tsconfig.*", "jest.config.js", "babel.config.cjs", "ts/**/*.ts"]
 		},
 		"typecheck": {
 			"inputs": ["package.json", "tsconfig.*", "tsdown.config.ts", "ts/**/*.ts"]

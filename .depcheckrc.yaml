@@ -13,7 +13,7 @@ ignores:
   - '@commitlint/config-conventional'
   - '@commitlint/cli'
   - '@repobuddy/biome'
-  # loaded by jest.config.js / babel.config.js by name, never imported
+  # loaded by jest.config.js / babel.config.cjs by name, never imported
   - '@babel/core'
   - '@babel/preset-env'
   - '@babel/preset-typescript'

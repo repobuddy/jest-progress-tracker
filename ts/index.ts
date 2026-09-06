@@ -1,3 +1,3 @@
-import { ProgressReporter } from './ProgressReporter'
+import { ProgressReporter } from './ProgressReporter.js'
 
 export default ProgressReporter
