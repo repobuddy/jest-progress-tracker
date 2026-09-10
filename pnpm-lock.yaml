@@ -67,8 +67,8 @@ importers:
         specifier: ^30.0.0
         version: 30.5.1(@types/node@24.13.3)(supports-color@8.1.1)
       jest-watch-suspend:
-        specifier: ^1.1.2
-        version: 1.1.3(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1))
+        specifier: ^2.0.0
+        version: 2.0.0(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1))
       jest-watch-toggle-config:
         specifier: ^2.0.1
         version: 2.0.1(jest-validate@30.5.1)(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1))
@@ -2475,11 +2475,11 @@ packages:
     resolution: {integrity: sha512-i/buJ56wTpxihE93hQYNMfdOThS87+HGvLZzZJmU4xggPcdTYQq051iwALLCHp3q+SkCGH+EFejQZz5EbBSkkg==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
-  jest-watch-suspend@1.1.3:
-    resolution: {integrity: sha512-HX8734Wvwd0s/aSvgjJuWkfMBCwlFYMToX3FMs6xOD5UJ9ucsKDzI40bvUyqK80FoJ395cz+LpoEvCL0sBpDKQ==}
-    engines: {node: '>= 20'}
+  jest-watch-suspend@2.0.0:
+    resolution: {integrity: sha512-tnN8b++VmHgcsiuStV4pCg53As8VHuqrFySiv0MO/8S4x9CDs97yS0Cc1ZxDkrpkmrDdtiski14aqUGXexr45w==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
-      jest: '>=23'
+      jest: '>=28'
 
   jest-watch-toggle-config@2.0.1:
     resolution: {integrity: sha512-qOOPo8vPlDX/hfHCQbJT5NKUvR+Uah+rsCtt+cCmg8oiMNtUvWUO2sqYW/X5PXmWyaoxwI14D8lVEmFy3w6BwQ==}
@@ -5830,7 +5830,7 @@ snapshots:
       leven: 3.1.0
       pretty-format: 30.5.1
 
-  jest-watch-suspend@1.1.3(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1)):
+  jest-watch-suspend@2.0.0(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1)):
     dependencies:
       chalk: 4.1.2
       jest: 30.5.1(@types/node@24.13.3)(supports-color@8.1.1)
