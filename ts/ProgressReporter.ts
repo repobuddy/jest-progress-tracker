@@ -1,8 +1,6 @@
-import type { JestHookSubscriber, WatchPlugin } from 'jest-watcher'
+import type { AggregatedResult, TestContext } from '@jest/test-result'
 import { append, init } from 'test-progress-tracker'
-import { transformTestResults } from './transformTestResults'
-
-init()
+import { transformTestResults } from './transformTestResults.js'
 
 /**
  * The subset of jest's global config this reporter reads.
@@ -27,25 +25,40 @@ function hasTestPathPatterns(patterns: ProgressReporterConfig['testPathPatterns'
 	return !!list && list.length > 0
 }
 
-export class ProgressReporter implements WatchPlugin {
+function isFiltered(config: ProgressReporterConfig) {
+	return !!(config.testNamePattern || config.testPathPattern || hasTestPathPatterns(config.testPathPatterns))
+}
+
+/**
+ * A jest reporter that appends one entry per completed run.
+ *
+ * This is a `reporters` entry, not a `watchPlugins` entry. Jest constructs a custom
+ * reporter as `new Reporter(globalConfig, options, context)` and awaits its
+ * `onRunComplete`, which is why `filtered` is derived in the constructor: that is
+ * where the run's `globalConfig` arrives. Jest builds a fresh scheduler — and so a
+ * fresh reporter — for every run, including each re-run in watch mode, so `filtered`
+ * tracks a pattern the user changes mid-watch instead of being fixed at startup.
+ */
+export class ProgressReporter {
 	// `append` is aliased onto the instance and called detached (`this.appendTestResult(...)`),
 	// which `test-progress-tracker` supports and its own suite covers. Keep it that way.
 	appendTestResult = append
-	filtered = false
+	filtered: boolean
 
-	async run(config: ProgressReporterConfig) {
-		this.filtered = !!(config.testNamePattern || config.testPathPattern || hasTestPathPatterns(config.testPathPatterns))
+	constructor(globalConfig: ProgressReporterConfig = {}) {
+		// `init` is idempotent (mkdirp plus a store assignment). It lives here rather than at
+		// module scope so that merely importing this package does not create `.progress/`.
+		init()
+		this.filtered = isFiltered(globalConfig)
 	}
 
-	apply(jestHooks: Pick<JestHookSubscriber, 'onTestRunComplete'>) {
-		jestHooks.onTestRunComplete((results) => {
-			const entry = transformTestResults(results)
-			if (entry) {
-				if (this.filtered) {
-					entry.filtered = true
-				}
-				void this.appendTestResult(undefined, entry)
-			}
-		})
+	async onRunComplete(_testContexts?: Set<TestContext>, results?: AggregatedResult) {
+		if (!results) return
+		const entry = transformTestResults(results)
+		if (!entry) return
+		if (this.filtered) entry.filtered = true
+		// Awaited, not fire-and-forget: jest awaits `onRunComplete`, so the write is
+		// guaranteed to land before the process exits.
+		await this.appendTestResult(undefined, entry)
 	}
 }

@@ -45,6 +45,7 @@ typings
 
 # project folders
 cjs
+esm
 .progress
 
 # publish gate

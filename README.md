@@ -7,6 +7,12 @@
 
 Track test progress for jest.
 
+## Requirements
+
+`jest-progress-tracker` is an ES module. It needs Node 20+ and Jest 27+
+(Jest loads a reporter with `requireOrImportModule`, which imports an ES module).
+`require('jest-progress-tracker')` is not supported.
+
 ## Usage
 
 To use `jest-progress-tracker`,
@@ -22,6 +28,12 @@ add it to the `reporters` section of the Jest configuration:
   }
 }
 ```
+
+This works for both plain runs and watch mode. Jest builds a fresh reporter for
+every run, so a run narrowed by `-t` / `--testPathPatterns` is recorded with a
+`filtered` flag, including when the pattern is changed mid-watch.
+
+Note this is a `reporters` entry, not a `watchPlugins` entry.
 
 [codecov-image]: https://codecov.io/gh/repobuddy/jest-progress-tracker/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/repobuddy/jest-progress-tracker
