@@ -70,8 +70,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.3(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1))
       jest-watch-toggle-config:
-        specifier: ^2.0.1
-        version: 2.0.1(jest-validate@30.5.1)(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1))
+        specifier: ^3.0.0
+        version: 3.0.0(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1))
       npm-run-all2:
         specifier: ^9.0.0
         version: 9.0.3
@@ -1898,6 +1898,10 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
+  chalk@5.6.2:
+    resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+
   char-regex@1.0.2:
     resolution: {integrity: sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==}
     engines: {node: '>=10'}
@@ -2481,12 +2485,11 @@ packages:
     peerDependencies:
       jest: '>=23'
 
-  jest-watch-toggle-config@2.0.1:
-    resolution: {integrity: sha512-qOOPo8vPlDX/hfHCQbJT5NKUvR+Uah+rsCtt+cCmg8oiMNtUvWUO2sqYW/X5PXmWyaoxwI14D8lVEmFy3w6BwQ==}
-    engines: {node: '>= 10'}
+  jest-watch-toggle-config@3.0.0:
+    resolution: {integrity: sha512-7gXl1roZ2ctq24X1cNJsSJ3vX2TktPHsK9QKN+p+WeyTAwwiifjxMP8jiO0zhpnOlycvLn+6LWboi38/FBLVzg==}
+    engines: {node: '>= 16'}
     peerDependencies:
       jest: '>= 23.4.1'
-      jest-validate: '>= 23.4.0'
 
   jest-watcher@30.5.1:
     resolution: {integrity: sha512-+FHJ7C+S7b3ySfhA1aFmoa6TztsnwZVv84ycPRn0tVN93np2EU4b8C/KadqA3l6igdjgLBTnUotab9ER0HLG8A==}
@@ -5121,6 +5124,8 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
+  chalk@5.6.2: {}
+
   char-regex@1.0.2: {}
 
   chokidar@3.6.0:
@@ -5836,11 +5841,10 @@ snapshots:
       jest: 30.5.1(@types/node@24.13.3)(supports-color@8.1.1)
       unpartial: 1.0.7
 
-  jest-watch-toggle-config@2.0.1(jest-validate@30.5.1)(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1)):
+  jest-watch-toggle-config@3.0.0(jest@30.5.1(@types/node@24.13.3)(supports-color@8.1.1)):
     dependencies:
-      chalk: 4.1.2
+      chalk: 5.6.2
       jest: 30.5.1(@types/node@24.13.3)(supports-color@8.1.1)
-      jest-validate: 30.5.1
 
   jest-watcher@30.5.1:
     dependencies:
