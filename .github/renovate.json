@@ -17,6 +17,18 @@
 	"lockFileMaintenance": { "enabled": true, "automerge": true },
 	"packageRules": [
 		{
+			"description": "The packageManager pin is toolchain, so non-major updates merge themselves.",
+			"matchDepTypes": ["packageManager"],
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"automerge": true
+		},
+		{
+			"description": "The toolchain pins (mise, nvm) move with packageManager, so they merge themselves too.",
+			"matchManagers": ["mise"],
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"automerge": true
+		},
+		{
 			"description": "devDependencies and GitHub Actions carry no published surface, so a green `code / all-checks` is the whole review. Majors stay manual either way.",
 			"matchDepTypes": ["devDependencies"],
 			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
