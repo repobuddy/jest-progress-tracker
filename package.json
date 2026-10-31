@@ -1,6 +1,6 @@
 {
 	"name": "jest-progress-tracker",
-	"version": "4.0.0",
+	"version": "4.0.1",
 	"description": "Keep track of test progress over time",
 	"keywords": [
 		"jest",
