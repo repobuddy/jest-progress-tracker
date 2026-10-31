@@ -1,5 +1,11 @@
 # jest-progress-tracker
 
+## 4.0.1
+
+### Patch Changes
+
+- c047364: Include `CHANGELOG.md` in the published package.
+
 ## 4.0.0
 
 ### Major Changes
